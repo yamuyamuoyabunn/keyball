@@ -53,4 +53,7 @@ jobs:
       uses: actions/upload-artifact@v7
       with:
         name: ${{ inputs.keyboard }}-${{ inputs.keymap }}-firmware
-        path: __qmk__/*.hex
+        path: |
+          __qmk__/*.hex
+          __qmk__/*.uf2
+          __qmk__/*.bin
