@@ -12,12 +12,21 @@ on:
         - keyball44
         - keyball61
         - keyball46
+        - keyballplus
         - one47
       keymap:
         description: 'Keymap'
         required: true
         type: string
         default: 'default'
+      firmware:
+        description: 'Firmware source'
+        required: true
+        type: choice
+        default: 'qmk'
+        options:
+        - qmk
+        - vial
 
 jobs:
 
@@ -25,6 +34,7 @@ jobs:
 
     uses: ./.github/workflows/build-firmware.yml
     with:
-      qmk_version: '0.22.14'
+      qmk_repository: ${{ inputs.firmware == 'vial' && 'vial-kb/vial-qmk' || 'qmk/qmk_firmware' }}
+      qmk_version: ${{ inputs.firmware == 'vial' && 'vial' || '0.22.14' }}
       keyboard:    ${{ inputs.keyboard }}
       keymap:      ${{ inputs.keymap }}

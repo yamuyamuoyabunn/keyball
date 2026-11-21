@@ -61,6 +61,7 @@ See each directories for each keyboards in a table above.
 There are three keymaps provided at least:
 
 * `via` - Standard version with [Remap](https://remap-keys.app/) or VIA to change keymap
+* `vial` - Vial-enabled version (currently available for `keyballplus`)
 * `test` - Easy-to-use version for checking operation at build time
 * `default` - Base version for creating your own customized firmware
 

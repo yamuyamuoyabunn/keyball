@@ -1,6 +1,10 @@
 name: 'Checkout QMK firmware'
 
 inputs:
+  repository:
+    default: 'qmk/qmk_firmware'
+    type: string
+    required: false
   version:
     default: '0.22.14'
     type: string
@@ -18,7 +22,7 @@ runs:
     uses: actions/checkout@v6
     with:
       path: ${{ inputs.path }}
-      repository: qmk/qmk_firmware
+      repository: ${{ inputs.repository }}
       submodules: recursive
       ref: ${{ inputs.version }}
 

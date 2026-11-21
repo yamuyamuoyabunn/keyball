@@ -4,6 +4,10 @@ on:
 
   workflow_call:
     inputs:
+      qmk_repository:
+        default: 'qmk/qmk_firmware'
+        type: string
+        required: false
       qmk_version:
         default: '0.22.14'
         type: string
@@ -32,6 +36,9 @@ jobs:
 
     - name: Checkout qmk_firmware
       uses: ./.github/actions/checkout-qmk_firmware
+      with:
+        repository: ${{ inputs.qmk_repository }}
+        version: ${{ inputs.qmk_version }}
 
     - name: Install a link to own source
       run: ln -s $(pwd)/qmk_firmware/keyboards/keyball __qmk__/keyboards/keyball
