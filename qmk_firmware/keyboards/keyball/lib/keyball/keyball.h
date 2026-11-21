@@ -87,6 +87,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #    define KEYBALL_MODEL 147
 #elif (PRODUCT_ID & 0xff00) == 0x0400
 #    define KEYBALL_MODEL 44
+#elif (PRODUCT_ID & 0xff00) == 0x0500
+#    define KEYBALL_MODEL 44
 #endif
 
 #define KEYBALL_OLED_MAX_PRESSING_KEYCODES 6
